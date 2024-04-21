@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+body,
+html {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.5;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+
+  table {
+    border: 1px solid rgba($color: #000000, $alpha: 0.12);
+    width: 100%;
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+div {
+  box-sizing: border-box;
+}
+
+
+.main1{
+  padding-top: 30px;
+  margin-bottom: 50px;
+}
+h4{
+  font-size: 1.1rem; 
+} 
+
+.container {
+  margin: 0 auto;
+  max-width: 74rem;
+  width: 90%;
+  
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border:2px solid rgb(241, 238, 238);
+  background:#fff;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.43);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.43);
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.43);
+  margin-top:10px;
+}
+
+button:focus{
+  outline:0px!important;
+}
+
+.selectedTab{
+  background-color:#ddd;
+  border-top: solid 3px #428bca !important
+}
+
+/* Added by Dinesh Pratap Singh on 04/08/2020 regarding mat related styles*/
+.mat-header-row-style{
+background: #f5f5f5;
+min-height: 45px !important;
+}
+
+.mat-header-cell-style{
+color:black !important;
+}
+
+.mat-row-style{
+min-height: 45px !important;
+}
+
+mat-row:hover {
+background-color: #4f99ed;
+color: white;
+cursor:pointer;
+}
+
+.mat-card-style {
+display: contents !important;
+}
+
+#tr:hover{
+  background-color: #4f99ed;
+  color: white;
+  cursor:pointer;
+   
+}
+#tr td{
+  font-size:13px;
+  word-wrap:break-word;
+}
+table {
+  table-layout:fixed;
+}
+
+.headerColor{
+  background: #f5f5f5;
+}
+
+

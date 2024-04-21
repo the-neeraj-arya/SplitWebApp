@@ -1,0 +1,37 @@
+.container1 {
+  max-width: 600px; /* Adjust as needed */
+  margin: 0 auto;
+  margin-top: 25%;
+  margin-bottom: 25%;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Black light shadow */
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Adjust as needed */
+}
+
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[color="accent"] {
+  background-color: #007bff; /* Accent color */
+  color: #fff; /* Text color */
+}
+
+button[color="accent"]:hover {
+  background-color: #0056b3; /* Accent color on hover */
+}

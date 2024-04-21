@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="container1" style="margin: 10px;">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-ls-12">
+                <h3>Create Group</h3>
+            </div>
+        </div>
+        <hr>
+        @if(noerror){
+        <div class="row" id="errors">
+            <div class="col-12" style="margin-top:10px;font-size:16px;color:rgb(231, 13, 13)">
+                <i class="fa fa-times">
+                    {{errorMessage}}
+                </i>
+            </div>
+        </div>
+        }
+        <form [formGroup]="SplitGroupDetails">
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-1">
+                    <label>Group Name <sup style="color: red;">*</sup> </label>
+                </div>
+                <div class="col-2">
+                    <input type="text" class="group-name" formControlName="groupName" [(ngModel)]="groupName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <label>How many people are in your group? <sup style="color: red;">*</sup> </label>
+                </div>
+                <div class="col-2">
+                    <input type="number" class="group-member" formControlName="memberSlabs" [(ngModel)]="memberSlabs"
+                        min="0" (blur)="onGroupMember()">
+                </div>
+            </div>
+            @if(groupTableDisable){
+            <div class="row" style="margin-top:10px;" aria-disabled="groupTableIs">
+                <table class="table movie-table" style="width: 500px;">
+                    <thead>
+                        <tr class="movie-table-head">
+                            <th style="text-align: left; width: 50px;">S.No </th>
+                            <th style="text-align: left;">Group Member Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let row of  membSlabRowsArray(); let rowIndex = index">
+                            <tr>
+                                <td>{{rowIndex+1}}</td>
+                                <td><input type="text" class="name" placeholder="Enter group member name"
+                                        style="width: 400;" formControlName="memberName" [ngModel]="memberName"
+                                        (blur)=onBlurMemberName(rowIndex)></td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+            }
+            <!-- <mat-divider></mat-divider> -->
+            <section>
+                <div class="button" style="margin-top: 10px">
+                    <button type="submit" mat-raised-button color="primary" style="margin-right: 5px;"
+                        (click)="onSubmit()">Go</button>
+                    <button type="submit" mat-flat-button color="primary" (click)="onReset()">Reset</button>
+                </div>
+            </section>
+            <!-- <mat-divider></mat-divider> -->
+        </form>
+    </div>
+</div>
