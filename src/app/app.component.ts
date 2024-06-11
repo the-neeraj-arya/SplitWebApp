@@ -9,6 +9,7 @@ import { SplitGroupComponent } from './split/split-group/split-group.component';
 import { SignupComponent } from './user/signup/signup.component';
 
 @Component({
+  
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, UserComponent, LoginComponent, MatButtonModule,
