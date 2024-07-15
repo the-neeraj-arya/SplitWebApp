@@ -3,33 +3,27 @@ import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { SplitService } from './split.service';
 
 @Component({
   selector: 'app-split',
   standalone: true,
-  imports: [RouterLink, MatButtonModule,MatIconModule,MatDividerModule],
+  imports: [RouterLink, MatButtonModule, MatIconModule, MatDividerModule],
   templateUrl: './split.component.html',
   styleUrl: './split.component.scss'
 })
 export class SplitComponent implements OnInit {
 
-  constructor(){    
-    console.log("This is constructor.");
+  message: any;
+  constructor(private service: SplitService) {
   }
 
-  ngOnChange(){
-    console.log("This is ngOnChage");
-  }
+  ngOnInit() {
+    this.service.getData().subscribe(
+      data =>
+        this.message = data
+    );
 
-  ngOnInit(){
-    console.log("This is ngOnInit");
+    console.log("message value", this.message);
   }
-
-  ngDoCheck(){
-    console.log("This is ngDoCheck");
-  }
-  ngOnDestroy(){
-    console.log("This is ngOnDestroy");
-  }
-
 }

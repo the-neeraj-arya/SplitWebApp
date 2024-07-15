@@ -7,13 +7,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import { SplitGroupComponent } from './split/split-group/split-group.component';
 import { SignupComponent } from './user/signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, UserComponent, LoginComponent, MatButtonModule,
-     MatIconModule, MatDividerModule, RouterModule, SplitGroupComponent, SignupComponent],
+     MatIconModule, MatDividerModule, RouterModule, SplitGroupComponent, SignupComponent,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
