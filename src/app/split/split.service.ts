@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -13,7 +13,8 @@ export class SplitService {
   constructor(private http: HttpClient) { }
 
   saveSplitGroupData(splitGroupDetailData: { [key: string]: any }): Observable<any> {
-    return this.httpClient.post<any>('/createGroup', splitGroupDetailData);
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.httpClient.post<any>('http://localhost:8080/group/createGroup', JSON.stringify(splitGroupDetailData), { headers });
   }
 
   getGroup() {
