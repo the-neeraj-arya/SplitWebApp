@@ -21,7 +21,7 @@ export class SplitComponent implements OnInit {
   ngOnInit() {
     this.service.getData().subscribe(
       data =>
-        this.message = data
+        this.message = data      
     );
 
     console.log("message value", this.message);

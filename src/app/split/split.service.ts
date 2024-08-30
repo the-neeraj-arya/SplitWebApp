@@ -12,7 +12,7 @@ export class SplitService {
 
   constructor(private http: HttpClient) { }
 
-  saveSplitGroupData(splitGroupDetailData: { [key: string]: any }) {
+  saveSplitGroupData(splitGroupDetailData: { [key: string]: any }): Observable<any> {
     return this.httpClient.post<any>('/createGroup', splitGroupDetailData);
   }
 

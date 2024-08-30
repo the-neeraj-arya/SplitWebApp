@@ -38,6 +38,7 @@ export class SplitGroupComponent implements OnInit {
   noerror: boolean = false;
   SplitGroupDetails!: FormGroup;
   groupName: String = '';
+  groupDesc: String = '';
   memberSlabs: number = 0;
   memberName: String = '';
   groupDataMap: Map<number, String> = new Map();
@@ -53,6 +54,7 @@ export class SplitGroupComponent implements OnInit {
   ngOnInit(): void {
     this.SplitGroupDetails = this.formbuilder.group({
       groupName: ['', Validators.required],
+      groupDesc: ['',Validators.required],
       memberSlabs: ['', Validators.required],
       memberName: ['', Validators.required],
     });
@@ -88,6 +90,11 @@ export class SplitGroupComponent implements OnInit {
       this.errorMessage = 'Group name should not be blank.';
       return;
     }
+    if (this.SplitGroupDetails.controls['groupDesc'].value == '') {
+      this.noerror = true;
+      this.errorMessage = 'Group description should not be blank.';
+      return;
+    }
     if (this.SplitGroupDetails.controls['memberSlabs'].value < 2) {
       this.noerror = true;
       this.errorMessage = 'Group members should be grater than 1.';
@@ -106,20 +113,12 @@ export class SplitGroupComponent implements OnInit {
 
     const splitGroupDetailData: { [key: string]: any } = {
       groupName: this.SplitGroupDetails?.controls['groupName'].value,
+      groupDesc: this.SplitGroupDetails?.controls['groupDesc'].value,
       memberSlabs: this.SplitGroupDetails?.controls['memberSlabs'].value,
       groupMembers: this.groupMemberData,
     };
 
     console.log(splitGroupDetailData);
-
-    this.splitService.getGroup().subscribe(
-      (response) => {
-        console.log('Post request successful!', response);
-      },
-      (error) => {
-        console.log('Error occurred while get group data:', error);
-      }
-    );
 
     this.splitService.saveSplitGroupData(splitGroupDetailData).subscribe(
       (response) => {
@@ -139,6 +138,7 @@ export class SplitGroupComponent implements OnInit {
     this.noerror = false;
     this.errorMessage = '';
     this.memberSlabs = 0;
+    this.groupTableDisable = false;
     this.ngOnInit();
     this.membSlabRowsArray();
   }
