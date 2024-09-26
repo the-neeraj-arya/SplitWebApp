@@ -49,12 +49,12 @@ export class SplitGroupComponent implements OnInit {
   constructor(
     private formbuilder: FormBuilder,
     private splitService: SplitService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.SplitGroupDetails = this.formbuilder.group({
       groupName: ['', Validators.required],
-      groupDesc: ['',Validators.required],
+      groupDesc: ['', Validators.required],
       memberSlabs: ['', Validators.required],
       memberName: ['', Validators.required],
     });
@@ -120,18 +120,18 @@ export class SplitGroupComponent implements OnInit {
 
     console.log(splitGroupDetailData);
 
-    this.splitService.saveSplitGroupData(splitGroupDetailData).subscribe(
-      (response) => {
+    this.splitService.saveSplitGroupData(splitGroupDetailData).subscribe({
+      next: (response) => {
         this.noerror = true;
         this.errorMessage = 'Post request successful!';
         console.log('Post request successful!', response);
       },
-      (error) => {
+      error: (error) => {
         this.noerror = true;
         this.errorMessage = 'Error occurred while posting data:';
         console.error('Error occurred while posting data:', error);
       }
-    );
+    });
   }
 
   onReset() {

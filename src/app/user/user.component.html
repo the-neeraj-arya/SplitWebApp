@@ -1,9 +1,17 @@
-<div class="container">
-    <div class="container1">
-        <h1>Get started</h1>
-        <div class="button">
-            <button [routerLink]="['/login']" routerLinkActive="active" mat-flat-button color="accent">Log in</button>
-            <button [routerLink]="['/signup']" routerLinkActive="active" mat-flat-button color="accent">Sign Up</button>
-        </div>
+<div class="container1">
+  <div class="details">
+    <div class="row">
+      <div>
+        <h2>Split Web App</h2>
+      </div>
+      <div>
+        <p>Yahaan app ki kuch information ya details rahegi like app kis
+          base pe hai or kya karta hai or main motive kya hai....</p>
+      </div>
     </div>
+  </div>
+
+  <div class="login-form">
+      <router-outlet></router-outlet>
+  </div>
 </div>

@@ -21,7 +21,7 @@ export class SplitService {
     return this.httpClient.get('/group');
   }
 
-  getData(): Observable<string> {
-    return this.http.get(this.baseUrl, { responseType: 'text' });
+  getData(): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:8080/group/getGroup');
   }
 }

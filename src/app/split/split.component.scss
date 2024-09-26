@@ -1,3 +1,58 @@
-.movie-table-head {
-  background-color: #f2f2f2;
+// /* Table Header Styling */
+// .movie-table-head {
+//   background-color: #e4caff;
+// }
+
+// /* Movie Table Styling */
+// .table-movie-table {
+//   color: #333;
+//   background-color: #f0e2ff; /* Using background-color instead of background for clarity */
+//   /* background: #e4caff !important; */
+// }
+
+// /* Action Buttons */
+// .edit,
+// .delete {
+//   cursor: pointer;
+// }
+
+// /* Edit Button Styling */
+// .edit {
+//   color: #5858ff;
+// }
+
+// /* Delete Button Styling */
+// .delete {
+//   color: #ff3131;
+// }
+
+table {
+    border: 1px solid rgba($color: #000000, $alpha: 0.12);
+    width: 100%;
+
+    #tr th {
+        font-size: 13px;
+        word-wrap: break-word;
+        background-color: #4f99ed;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+}
+
+#tr:hover {
+    background-color: #4f99ed;
+    color: white;
+    cursor: pointer;
+
+}
+
+#tr td {
+    font-size: 13px;
+    word-wrap: break-word;
+}
+
+table {
+    table-layout: fixed;
 }

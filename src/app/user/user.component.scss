@@ -1,37 +1,26 @@
 .container1 {
-  max-width: 600px; /* Adjust as needed */
-  margin: 0 auto;
-  margin-top: 25%;
-  margin-bottom: 25%;
+  display: flex;
+  height: 100vh; /* Full screen height */
+}
+
+.details, .login-form {
+  flex: 1; /* 1:1 ratio for both sides */
   padding: 20px;
+}
+
+.details {
+  background-color: #a16db6; /* Left side ka color */
+  display: flex;
+  color: #f8f5f5;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Black light shadow */
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.button {
+.login-form {
   display: flex;
   justify-content: center;
-  gap: 10px; /* Adjust as needed */
+  align-items: center;
+  background-color: #ffffff; /* Right side ka color */
 }
 
-button {
-  font-size: 16px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button[color="accent"] {
-  background-color: #007bff; /* Accent color */
-  color: #fff; /* Text color */
-}
-
-button[color="accent"]:hover {
-  background-color: #0056b3; /* Accent color on hover */
-}

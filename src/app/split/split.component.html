@@ -2,54 +2,81 @@
     <div class="container1" style="margin: 10px;">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-ls-12">
-                    <h3>Add Expence</h3>
-                    <h3>{{message}}</h3>
-                </div>
+                <div class="col-ls-12"></div>
+                <h3>Add Expence</h3>
             </div>
-            <hr>
-            <div class="row" style="margin-top: 20px;">
-                <div class="col-6">
-                    <input type=text placeholder="Filter By Member Name" class="form-control"
-                        style="width: 750px; height: 37px;" />
-                </div>
-                <div class="col-6">
-                    <button class="btn btn-primary" mat-raised-button color="primary"
-                        style="margin-left: 300px; width: 200px;" [routerLink]="['/splitGroup']">
-                        <span class="fa fa-plus" style="padding-right: 2px;"> </span> Create Group</button>
-                </div>
+            @if(message!=""){
+            <div class="col-ls-12">
+                <h3>{{message}}</h3>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <hr>
-                </div>
+            }
+            @if(errorMessage!=""){
+            <div class="col-ls-12" style="color: red;">
+                <h3>{{errorMessage}}</h3>
             </div>
-            <form>
-                <div class="row" style="margin-top:10px;margin-left: 5px;margin-right: 5px;margin-bottom: 20px;">
-                    <table class="table movie-table" style="color:rgb(97, 91, 91);">
-                        <thead>
-                            <tr class="movie-table-head">
-                                <th style="text-align: left; width: 50px;">S.No </th>
-                                <th style="text-align: left;">Name</th>
-                                <th style="text-align: left;">Amount</th>
-                                <th style="text-align: left;">Details</th>
-                                <th style="text-align: left;">Date</th>
-                                <th>Members</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </form>
+            }
         </div>
+        <hr>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-6">
+                <input type=text placeholder="Filter By Member Name" class="form-control"
+                    style="width: 750px; height: 37px;" />
+            </div>
+            <div class="col-6">
+                <button class="btn btn-primary" mat-raised-button color="primary"
+                    style="margin-left: 300px; width: 200px;" [routerLink]="['/splitGroup']">
+                    <span class="fa fa-plus" style="padding-right: 2px;"> </span> Create Group</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <hr>
+            </div>
+        </div>
+        <div>
+            <header>
+                <h2>
+                    <span class="material-symbols-outlined">list</span>List of members
+                </h2>
+                <div class="search-wrapper">
+                    <span class="material-symbols-outlined">search</span>
+                    <input type="text" placeholder="Search members" />
+                </div>
+            </header>
+        </div>
+        <form class="form">
+            <div class="row" style="margin-top:10px;margin-left: 5px;margin-right: 5px;margin-bottom: 20px;">
+                <table class="table-movie-table" style="color:rgb(97, 91, 91);">
+                    <thead>
+                        <tr class="movie-table-head">
+                            <th style="text-align: left; width: 100px;">S.No </th>
+                            <th style="text-align: left; width: 150px;">Group Id</th>
+                            <th style="text-align: left;">Name</th>
+                            <th style="text-align: left;">Member</th>
+                            <th style="text-align: left;">Create Date</th>
+                            <th style="text-align: left;">Description</th>
+                            <th style="text-align: left;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let group of groupsData; let i = index" (click)="onRowClick(group)">
+                            <td>{{i + 1}}</td>
+                            <td>{{group.id}}</td>
+                            <td>{{group.name}}</td>
+                            <td>{{group.groupMembers}}</td>
+                            <td>{{group.createdDate}}</td>
+                            <td>{{group.desc}}</td>
+                            <td>
+                                <div>
+                                    <span class="material-symbols-outlined">edit</span>
+                                    <span class="material-symbols-outlined">delete</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <app-split-group-member [parentData]="selectedGroup"></app-split-group-member>
+            </div>
+        </form>
     </div>
 </div>
